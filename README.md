@@ -1,6 +1,6 @@
 # Welcome to the **Online Store Tech Test** repository
 
-![Online Store Tech Test]([https://raw.githubusercontent.com/marcin-piekarski/online-store-tech-test/main/images/online-store-tech-test--preview.png](https://raw.githubusercontent.com/marcin-piekarski/online-store-tech-test/main/images/online-store-tech-test--preview.png))
+![Online Store Tech Test](https://raw.githubusercontent.com/marcin-piekarski/online-store-tech-test/main/images/online-store-tech-test--preview.png "Online Store Tech Test")
 
 This repository contains a design of a *fake* online store for the purposes of a technical test.
 
