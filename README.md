@@ -11,7 +11,7 @@ We need you to use **key dependencies** listed below to build a server-side rend
 
 ## Key Dependencies
 
-- [Figma](https://www.figma.com/file/5oqdRArPHbN33QJjFy1kiG/tech-test-store?node-id=0%3A1) / [PNG](https://github.com/marcin-piekarski/online-store-tech-test/blob/main/images/online-store-tect-test-design.png)
+- [Figma](https://www.figma.com/file/5oqdRArPHbN33QJjFy1kiG/tech-test-store?node-id=0%3A1)
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 - [Next.js](https://nextjs.org/) by Vercel - The React Framework
 - [Fake Store API](https://fakestoreapi.com/) / [Fake Store API Docs](https://fakestoreapi.com/docs) - Fake store rest API for your e-commerce or shopping website prototype
