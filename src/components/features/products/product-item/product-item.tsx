@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/index.ui";
+import { Button, StarRating } from "@/components/ui/index.ui";
 import { formatPrice } from "@/utils/helper";
 import styles from "./product-item.module.scss";
 import type { Product } from "@/types/products.types";
@@ -21,13 +21,13 @@ const ProductItem = ({ product }: ProductItemProps) => {
     <li className={styles["product-item"]}>
       <h3>{title}</h3>
       <div className={styles["img-container"]}>
-        <Image src={image} alt={title} fill />
+        <Image src={image} alt={title} fill priority />
       </div>
       <p>{description}</p>
       <div className={styles["info-container"]}>
         <span className={styles.price}>{formatPrice(price)}</span>
-        <span>
-          {rate} {count}
+        <span className={styles["rating-container"]}>
+          <StarRating rate={Math.floor(rate)} /> <span>({count})</span>
         </span>
       </div>
       <Button color="blue">Add to Cart</Button>

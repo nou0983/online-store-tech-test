@@ -4,5 +4,6 @@ import Footer from "./footer/footer";
 import Header from "./header/header";
 import Logo from "./logo/logo";
 import Spinner from "./spinner/spinner";
+import StarRating from "./star-rating/star-rating";
 
-export { ButtonCart, Header, Logo, Spinner, Button, Footer };
+export { ButtonCart, Header, Logo, Spinner, Button, Footer, StarRating };
