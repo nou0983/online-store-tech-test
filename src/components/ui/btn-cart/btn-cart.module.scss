@@ -1,0 +1,15 @@
+.btn-cart {
+  display: flex;
+  align-items: center;
+  color: var(--color-gray);
+  font-size: 3rem;
+  transition: 0.1s linear;
+
+  &:hover {
+    color: var(--color-text);
+  }
+
+  span {
+    font-size: 2rem;
+  }
+}
