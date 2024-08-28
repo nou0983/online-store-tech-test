@@ -1,0 +1,18 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-gray);
+  padding: 0 2rem 2rem;
+  width: 100%;
+  background-color: var(--color-white);
+  z-index: 100;
+
+  p {
+    padding-top: 2rem;
+    border-top: var(--border-md);
+  }
+}

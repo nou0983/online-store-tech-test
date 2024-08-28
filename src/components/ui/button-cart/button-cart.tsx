@@ -1,7 +1,7 @@
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import styles from "./btn-cart.module.scss";
+import styles from "./button-cart.module.scss";
 
-const BtnCart = () => {
+const ButtonCart = () => {
   return (
     <button type="button" className={styles["btn-cart"]}>
       <HiOutlineShoppingBag />
@@ -10,4 +10,4 @@ const BtnCart = () => {
   );
 };
 
-export default BtnCart;
+export default ButtonCart;

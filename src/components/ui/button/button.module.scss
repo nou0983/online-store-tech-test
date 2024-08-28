@@ -1,0 +1,23 @@
+.button {
+  text-align: center;
+  padding: 1rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  width: 100%;
+  transition: 0.1s linear;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-text);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-gray);
+  }
+
+  &--blue {
+    background-color: var(--color-blue);
+  }
+
+  &--green {
+    background-color: var(--color-green);
+  }
+}
