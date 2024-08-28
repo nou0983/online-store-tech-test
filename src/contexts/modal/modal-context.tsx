@@ -3,8 +3,10 @@
 import { createContext, useReducer, useContext } from "react";
 import modalReducer, { type ModalActionType } from "./modal-context-reducer";
 
+export type HeadingType = "cart" | "checkout" | "order confirmation" | null;
+
 export type ModalStateType = {
-  heading: "cart" | "checkout" | "order confirmation" | null;
+  heading: HeadingType;
   isOpen: boolean;
 };
 

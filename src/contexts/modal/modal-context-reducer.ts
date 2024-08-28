@@ -1,4 +1,4 @@
-import type { ModalStateType } from "./modal-context";
+import type { ModalStateType, HeadingType } from "./modal-context";
 
 type ModalCloseActionType = {
   type: "modal/close";
@@ -6,7 +6,7 @@ type ModalCloseActionType = {
 
 type ModalOpenActionType = {
   type: "modal/open";
-  payload: string;
+  payload: HeadingType;
 };
 
 export type ModalActionType = ModalCloseActionType | ModalOpenActionType;
@@ -25,7 +25,7 @@ const modalReducer = (
     case "modal/close":
       return {
         ...state,
-        heading: "",
+        heading: null,
         isOpen: false,
       };
     default:
