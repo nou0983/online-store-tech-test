@@ -7,11 +7,10 @@ import { CartList } from "@/components/features/cart/index.cart";
 import { Form } from "@/components/features/checkout/index.checkout";
 import { useModalContext } from "@/contexts/modal/modal-context";
 import { useCartContext } from "@/contexts/cart/cart-context";
-import { submitOrderFormAction } from "@/actions/submit-order-form-action";
+import { submitOrderAction } from "@/actions/submit-order-action";
 import { formatPrice } from "@/utils/helper";
 import { CircleX } from "lucide-react";
 import styles from "./modal.module.scss";
-import formRowStyles from "@/components/features/checkout/form-row/form-row.module.scss";
 
 export type MessageType = "success" | "fail" | null;
 
@@ -35,7 +34,7 @@ const Modal = () => {
   const { heading, dispatch: modalDispatch } = useModalContext();
   const { items, totalPrice, dispatch: cartDispatch } = useCartContext();
 
-  const [formState, action] = useFormState(submitOrderFormAction, {
+  const [formState, action] = useFormState(submitOrderAction, {
     message: null,
     errors: {},
   });
@@ -131,7 +130,13 @@ const Modal = () => {
                 order summary: {formatPrice(totalPrice)}
               </h3>
               {formState.errors.form && (
-                <p style={{ textAlign: "center", color: "var(--color-red)" }}>
+                <p
+                  style={{
+                    textAlign: "center",
+                    color: "var(--color-red)",
+                    marginBottom: "1rem",
+                  }}
+                >
                   {formState.errors.form}
                 </p>
               )}
