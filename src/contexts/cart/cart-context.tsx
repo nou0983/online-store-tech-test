@@ -9,9 +9,9 @@ type CartContextType = CartStateType & {
   dispatch: React.Dispatch<CartActionType>;
 };
 type CartProviderProps = { children: React.ReactNode };
-export type CartItem = Product & { qty: number };
+export type CartItemType = Product & { qty: number };
 export type CartStateType = {
-  items: CartItem[];
+  items: CartItemType[];
   totalPrice: number;
   totalQty: number;
 };

@@ -1,13 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useCartContext, type CartItem } from "@/contexts/cart/cart-context";
+import {
+  useCartContext,
+  type CartItemType,
+} from "@/contexts/cart/cart-context";
 import { formatPrice } from "@/utils/helper";
 import { Trash2 } from "lucide-react";
 import styles from "./cart-item.module.scss";
 
 type CartItemProps = {
-  item: CartItem;
+  item: CartItemType;
 };
 
 const CartItem = ({ item }: CartItemProps) => {
