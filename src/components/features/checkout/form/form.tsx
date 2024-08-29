@@ -1,6 +1,4 @@
-import { useFormState } from "react-dom";
 import { FormRow } from "../index.checkout";
-import { submitOrderFormAction } from "@/actions/submit-order-form-action";
 import styles from "./form.module.scss";
 
 type inputFieldListType = {
@@ -22,12 +20,8 @@ const PaymentInputList: inputFieldListType[] = [
 ];
 
 const Form = () => {
-  const [formState, action] = useFormState(submitOrderFormAction, {
-    message: "",
-  });
-
   return (
-    <form action={action} className={styles.form}>
+    <div className={styles.form}>
       <div>
         <h3>shipping information</h3>
         {personalInputList.map((input) => {
@@ -52,7 +46,7 @@ const Form = () => {
           );
         })}
       </div>
-    </form>
+    </div>
   );
 };
 

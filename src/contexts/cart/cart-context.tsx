@@ -16,7 +16,7 @@ export type CartStateType = {
   totalQty: number;
 };
 
-const initialStateCart: CartStateType = {
+export const initialStateCart: CartStateType = {
   items: [],
   totalPrice: 0,
   totalQty: 0,

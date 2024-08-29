@@ -1,11 +1,16 @@
 .spinner {
-  margin: 3.2rem auto 1.6rem;
+  margin: 0 auto;
   width: 60px;
   aspect-ratio: 1;
   border-radius: 50%;
   border: 8px solid var(--color-gray);
   border-right-color: var(--color-gray-light);
   animation: rotate 1s infinite linear;
+
+  &--small {
+    width: 20px;
+    border-width: 3px;
+  }
 }
 
 @keyframes rotate {

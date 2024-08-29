@@ -5,7 +5,7 @@ const CartList = () => {
   const { items } = useCartContext();
 
   if (items.length === 0) {
-    return <li>Your cart is empty</li>;
+    return <li style={{ padding: "5rem 0" }}>Your cart is empty</li>;
   }
 
   return (

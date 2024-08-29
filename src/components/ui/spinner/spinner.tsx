@@ -1,7 +1,15 @@
 import styles from "./spinner.module.scss";
 
-const Spinner = () => {
-  return <div className={styles.spinner}></div>;
+type SpinnerProps = {
+  size?: "small";
+};
+
+const Spinner = ({ size }: SpinnerProps) => {
+  return (
+    <div
+      className={`${styles.spinner} ${size ? styles[`spinner--${size}`] : ""}`}
+    ></div>
+  );
 };
 
 export default Spinner;

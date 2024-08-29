@@ -1,5 +1,7 @@
+import type { FormStateType, MessageType } from "@/components/ui/modal/modal";
+
 export const submitOrderFormAction = async (
-  formState: { message: string },
+  formState: FormStateType,
   formData: FormData
 ) => {
   const email = formData.get("email") as string;
@@ -13,11 +15,20 @@ export const submitOrderFormAction = async (
   // Validate form data
   if (email.length <= 0 || fullName.length <= 0)
     return {
-      message: "Please fill out all fields.",
+      message: "fail" as MessageType,
+      errorObj: {
+        name: "Name is required",
+        email: "Email is required",
+        address: null,
+        cardNumber: null,
+        cardHolderName: null,
+        expiry: null,
+        cvc: null,
+      },
     };
 
-  const URL = `https://api.helpdesk.com/v1/tickets`;
-  const authHeader = `Bearer ${process.env.HELPDESK_API_KEY || ""}`;
+  const URL = "REPLACE_WITH_YOUR_API_URL";
+  const authHeader = "Bearer REPLACE_WITH_YOUR_AUTH_TOKEN";
   const payload = Object.fromEntries(formData.entries());
   console.log(payload);
 
@@ -34,7 +45,7 @@ export const submitOrderFormAction = async (
   //   const response = await fetch(URL, requestConfig);
 
   //   if (!response.ok) {
-  //     throw new Error(`Failed to submit contact form`);
+  //     throw new Error(`Failed to submit contact form.`);
   //   }
 
   //   await response.json();
@@ -46,5 +57,16 @@ export const submitOrderFormAction = async (
   //   }
   // }
 
-  return { message: "success" };
+  return {
+    message: "success" as MessageType,
+    errorObj: {
+      name: null,
+      email: null,
+      address: null,
+      cardNumber: null,
+      cardHolderName: null,
+      expiry: null,
+      cvc: null,
+    },
+  };
 };

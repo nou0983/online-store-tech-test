@@ -1,4 +1,4 @@
-import { CartStateType } from "./cart-context";
+import { CartStateType, initialStateCart } from "./cart-context";
 import type { Product } from "@/types/products.types";
 
 type AddItemsType = {
@@ -9,6 +9,9 @@ type RemoveItemType = {
   type: "cart/removeItem";
   payload: number;
 };
+type ClearCartType = {
+  type: "cart/clear";
+};
 type UpdateTotalPriceAndQtyType = {
   type: "cart/updateTotalPriceAndQty";
   payload: { totalPrice: number; totalQty: number };
@@ -16,6 +19,7 @@ type UpdateTotalPriceAndQtyType = {
 export type CartActionType =
   | AddItemsType
   | RemoveItemType
+  | ClearCartType
   | UpdateTotalPriceAndQtyType;
 
 const cartReducer = (
@@ -45,6 +49,8 @@ const cartReducer = (
         ...state,
         items: state.items.filter((item) => item.id !== action.payload),
       };
+    case "cart/clear":
+      return initialStateCart;
     case "cart/updateTotalPriceAndQty":
       return {
         ...state,
