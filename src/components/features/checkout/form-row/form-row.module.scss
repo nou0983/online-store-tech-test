@@ -16,3 +16,9 @@
     border-radius: var(--border-radius-sm);
   }
 }
+
+.error-message {
+  color: var(--color-red);
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}

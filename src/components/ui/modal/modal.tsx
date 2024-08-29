@@ -11,20 +11,24 @@ import { submitOrderFormAction } from "@/actions/submit-order-form-action";
 import { formatPrice } from "@/utils/helper";
 import { CircleX } from "lucide-react";
 import styles from "./modal.module.scss";
+import formRowStyles from "@/components/features/checkout/form-row/form-row.module.scss";
 
 export type MessageType = "success" | "fail" | null;
 
+export type ErrorsType = {
+  fullName?: string;
+  email?: string;
+  address?: string;
+  cardNumber?: string;
+  cardHolderName?: string;
+  expiryDate?: string;
+  cvc?: string;
+  form?: string;
+};
+
 export type FormStateType = {
   message: MessageType;
-  errors: {
-    name?: string;
-    email?: string;
-    address?: string;
-    cardNumber?: string;
-    cardHolderName?: string;
-    expiry?: string;
-    cvc?: string;
-  };
+  errors: ErrorsType;
 };
 
 const Modal = () => {
@@ -65,7 +69,7 @@ const Modal = () => {
     buttonText = "Confirm Order";
     innerContent = (
       <>
-        <Form />
+        <Form errors={formState.errors} />
         <CartList />
       </>
     );
@@ -75,7 +79,14 @@ const Modal = () => {
   } else {
     buttonText = "Close";
     innerContent = (
-      <p style={{ fontSize: "2.5rem", fontWeight: "700", padding: "5rem 0" }}>
+      <p
+        style={{
+          fontSize: "2.5rem",
+          fontWeight: "700",
+          padding: "5rem 0",
+          textAlign: "center",
+        }}
+      >
         Thank you for your order!
       </p>
     );
@@ -112,16 +123,18 @@ const Modal = () => {
             <CircleX />
           </button>
         </div>
-        <div className={styles["inner-container"]}>
-          {formState.message === "fail" && <p>error</p>}
-          {innerContent}
-        </div>
+        <div className={styles["inner-container"]}>{innerContent}</div>
         <div>
           {heading === "checkout" && (
             <>
               <h3 className={styles.total}>
                 order summary: {formatPrice(totalPrice)}
               </h3>
+              {formState.errors.form && (
+                <p style={{ textAlign: "center", color: "var(--color-red)" }}>
+                  {formState.errors.form}
+                </p>
+              )}
               <ButtonWithServerStatus disabled={disabled}>
                 {buttonText}
               </ButtonWithServerStatus>
