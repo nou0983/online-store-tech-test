@@ -5,6 +5,7 @@ import {
   useCartContext,
   type CartItemType,
 } from "@/contexts/cart/cart-context";
+import { QtyController } from "../index.cart";
 import { formatPrice } from "@/utils/helper";
 import { Trash2 } from "lucide-react";
 import styles from "./cart-item.module.scss";
@@ -21,7 +22,36 @@ const CartItem = ({ item }: CartItemProps) => {
     dispatch({ type: "cart/removeItem", payload: id });
   };
 
-  const handleChange = () => {};
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    qty?: number
+  ) => {
+    const value = qty || e.target.value;
+    if (!isNaN(+value)) {
+      dispatch({
+        type: "cart/updateQty",
+        payload: { id, qty: +value },
+      });
+    }
+  };
+
+  const handleDecrement = () => {
+    if (qty > 1) {
+      dispatch({
+        type: "cart/updateQty",
+        payload: { id, qty: qty - 1 },
+      });
+      return;
+    }
+    dispatch({ type: "cart/removeItem", payload: id });
+  };
+
+  const handleIncrement = () => {
+    dispatch({
+      type: "cart/updateQty",
+      payload: { id, qty: qty + 1 },
+    });
+  };
 
   return (
     <li className={styles["cart-item"]}>
@@ -37,11 +67,12 @@ const CartItem = ({ item }: CartItemProps) => {
         </div>
         <div className={styles["footer"]}>
           <span>{formatPrice(price)}</span>
-          <p>
-            <button>-</button>
-            <input type="text" value={qty} onChange={handleChange} />
-            <button>+</button>
-          </p>
+          <QtyController
+            qty={qty}
+            onChange={handleChange}
+            onDecrement={handleDecrement}
+            onIncrement={handleIncrement}
+          />
         </div>
       </div>
     </li>

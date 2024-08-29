@@ -12,6 +12,10 @@ type RemoveItemType = {
 type ClearCartType = {
   type: "cart/clear";
 };
+type UpdateQtyType = {
+  type: "cart/updateQty";
+  payload: { id: number; qty: number };
+};
 type UpdateTotalPriceAndQtyType = {
   type: "cart/updateTotalPriceAndQty";
   payload: { totalPrice: number; totalQty: number };
@@ -20,6 +24,7 @@ export type CartActionType =
   | AddItemsType
   | RemoveItemType
   | ClearCartType
+  | UpdateQtyType
   | UpdateTotalPriceAndQtyType;
 
 const cartReducer = (
@@ -48,6 +53,15 @@ const cartReducer = (
       return {
         ...state,
         items: state.items.filter((item) => item.id !== action.payload),
+      };
+    case "cart/updateQty":
+      return {
+        ...state,
+        items: state.items.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, qty: action.payload.qty }
+            : item
+        ),
       };
     case "cart/clear":
       return initialStateCart;

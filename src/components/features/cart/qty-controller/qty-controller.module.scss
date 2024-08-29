@@ -1,0 +1,26 @@
+.qty-controller {
+  border: var(--border-sm);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+
+  button {
+    padding: 0.5rem;
+  }
+
+  input {
+    width: 5rem;
+    text-align: center;
+    border: none;
+    padding: 1rem;
+  }
+
+  svg {
+    transition: 0.1s linear;
+    color: var(--color-gray);
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+}
