@@ -1,9 +1,11 @@
 import { useModalContext } from "@/contexts/modal/modal-context";
-import { HiOutlineShoppingBag } from "react-icons/hi";
+import { useCartContext } from "@/contexts/cart/cart-context";
+import { ShoppingBag } from "lucide-react";
 import styles from "./button-cart.module.scss";
 
 const ButtonCart = () => {
   const { dispatch, isOpen } = useModalContext();
+  const { totalQty } = useCartContext();
 
   const handleClick = () => {
     if (!isOpen) {
@@ -15,8 +17,8 @@ const ButtonCart = () => {
 
   return (
     <button type="button" className={styles["btn-cart"]} onClick={handleClick}>
-      <HiOutlineShoppingBag />
-      <span>&times;4</span>
+      <ShoppingBag />
+      <span>&times;{totalQty}</span>
     </button>
   );
 };

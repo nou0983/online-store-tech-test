@@ -3,12 +3,10 @@ import type { ModalStateType, HeadingType } from "./modal-context";
 type ModalCloseActionType = {
   type: "modal/close";
 };
-
 type ModalOpenActionType = {
   type: "modal/open";
   payload: HeadingType;
 };
-
 export type ModalActionType = ModalCloseActionType | ModalOpenActionType;
 
 const modalReducer = (

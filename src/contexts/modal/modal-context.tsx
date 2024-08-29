@@ -3,18 +3,16 @@
 import { createContext, useReducer, useContext } from "react";
 import modalReducer, { type ModalActionType } from "./modal-context-reducer";
 
+// Types related to the modal context
+type ModalContextType = ModalStateType & {
+  dispatch: React.Dispatch<ModalActionType>;
+};
+type ModalProviderProps = { children: React.ReactNode };
 export type HeadingType = "cart" | "checkout" | "order confirmation" | null;
-
 export type ModalStateType = {
   heading: HeadingType;
   isOpen: boolean;
 };
-
-type ModalContextType = ModalStateType & {
-  dispatch: React.Dispatch<ModalActionType>;
-};
-
-type ModalProviderProps = { children: React.ReactNode };
 
 const initialStateModal: ModalStateType = {
   heading: null,

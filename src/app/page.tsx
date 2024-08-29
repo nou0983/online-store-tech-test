@@ -4,7 +4,7 @@ import { Spinner } from "@/components/ui/index.ui";
 
 export default function Home() {
   return (
-    <section>
+    <section className="container">
       <Suspense fallback={<Spinner />}>
         <ProductList />
       </Suspense>

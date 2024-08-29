@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { HiLightningBolt } from "react-icons/hi";
+import { Zap } from "lucide-react";
 import styles from "./logo.module.scss";
 
 const Logo = () => {
   return (
     <Link href="/" className={styles.logo}>
-      <HiLightningBolt />
+      <Zap />
     </Link>
   );
 };

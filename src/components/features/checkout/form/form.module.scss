@@ -1,0 +1,14 @@
+.form {
+  margin-bottom: 1rem;
+
+  h3 {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    text-transform: capitalize;
+  }
+
+  > div {
+    padding-bottom: 2rem;
+    border-bottom: var(--border-sm);
+  }
+}

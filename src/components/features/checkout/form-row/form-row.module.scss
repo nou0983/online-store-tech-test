@@ -1,0 +1,18 @@
+.form-row {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    text-transform: capitalize;
+  }
+
+  input {
+    padding: 1rem;
+    border: var(--border-sm);
+    border-radius: var(--border-radius-sm);
+  }
+}

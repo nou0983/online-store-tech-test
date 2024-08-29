@@ -9,14 +9,6 @@
     height: 30rem;
     border: var(--border-sm);
     border-radius: var(--border-radius-md);
-
-    img {
-      object-fit: contain;
-      height: 85% !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%);
-    }
   }
 
   h3 {

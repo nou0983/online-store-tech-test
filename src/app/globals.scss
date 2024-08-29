@@ -11,6 +11,7 @@
   --border-sm: 1px solid var(--color-gray-light);
   --border-md: 2px solid var(--color-gray-light);
 
+  --border-radius-sm: 4px;
   --border-radius-md: 9px;
 }
 
@@ -50,4 +51,17 @@ button {
 
 li {
   list-style: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.center-image {
+  object-fit: contain;
+  height: 85% !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
 }
