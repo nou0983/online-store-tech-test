@@ -7,15 +7,14 @@
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow-y: auto;
+  align-items: flex-start;
   z-index: 200;
 
   .container {
-    margin: 10rem 0;
     max-width: 500px;
     width: 98%;
-    max-height: 90vh;
+    max-height: 75vh;
+    margin-top: 9rem;
     overflow-y: auto;
     background-color: var(--color-white);
     border-radius: var(--border-radius-md);

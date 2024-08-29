@@ -1,15 +1,24 @@
 .btn-cart {
-  display: flex;
-  align-items: center;
   color: var(--color-gray);
-  font-size: 3rem;
-  transition: 0.1s linear;
+  position: relative;
 
-  &:hover {
-    color: var(--color-text);
+  svg {
+    height: 30px;
+    width: 30px;
   }
 
   span {
     font-size: 2rem;
+    position: absolute;
+    right: -5px;
+    bottom: 0;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 1.4rem;
+    line-height: 20px;
+    text-align: center;
   }
 }

@@ -18,7 +18,7 @@ const ButtonCart = () => {
   return (
     <button type="button" className={styles["btn-cart"]} onClick={handleClick}>
       <ShoppingBag />
-      <span>&times;{totalQty}</span>
+      {totalQty > 0 && <span className={styles["qty-icon"]}>{totalQty}</span>}
     </button>
   );
 };
