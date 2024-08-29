@@ -2,7 +2,10 @@
 
 import { createContext, useReducer, useContext, useEffect } from "react";
 import cartReducer, { type CartActionType } from "./cart-context-reducer";
-import { getDataFromLocalStorage } from "@/services/api-localStorage";
+import {
+  getDataFromLocalStorage,
+  addDataToLocalStorage,
+} from "@/services/api-localStorage";
 import type { Product } from "@/types/products.types";
 
 // Types related to the cart context
@@ -18,7 +21,7 @@ export type CartStateType = {
 };
 
 export const initialStateCart: CartStateType = {
-  items: getDataFromLocalStorage("testCart") || [],
+  items: [],
   totalPrice: 0,
   totalQty: 0,
 };
@@ -26,11 +29,21 @@ export const initialStateCart: CartStateType = {
 const CartContext = createContext<CartContextType | null>(null);
 
 const CartProvider = ({ children }: CartProviderProps) => {
-  const [state, dispatch] = useReducer(cartReducer, initialStateCart);
+  const [state, dispatch] = useReducer(
+    cartReducer,
+    initialStateCart,
+    (initial) => {
+      if (typeof window !== "undefined") {
+        const localData = getDataFromLocalStorage("testCart");
+        return localData ? { ...initial, items: localData } : initial;
+      }
+      return initial;
+    }
+  );
 
   useEffect(() => {
     calculateTotalPriceAndQty();
-    localStorage.setItem("testCart", JSON.stringify(state.items));
+    addDataToLocalStorage("testCart", state.items);
   }, [state.items]);
 
   const calculateTotalPriceAndQty = () => {

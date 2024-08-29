@@ -6,3 +6,7 @@ export const getDataFromLocalStorage = (key: string) => {
   }
   return JSON.parse(data);
 };
+
+export const addDataToLocalStorage = (key: string, data: any) => {
+  localStorage.setItem(key, JSON.stringify(data));
+};
