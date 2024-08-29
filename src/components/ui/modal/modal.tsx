@@ -16,14 +16,14 @@ export type MessageType = "success" | "fail" | null;
 
 export type FormStateType = {
   message: MessageType;
-  errorObj: {
-    name: string | null;
-    email: string | null;
-    address: string | null;
-    cardNumber: string | null;
-    cardHolderName: string | null;
-    expiry: string | null;
-    cvc: string | null;
+  errors: {
+    name?: string;
+    email?: string;
+    address?: string;
+    cardNumber?: string;
+    cardHolderName?: string;
+    expiry?: string;
+    cvc?: string;
   };
 };
 
@@ -33,15 +33,7 @@ const Modal = () => {
 
   const [formState, action] = useFormState(submitOrderFormAction, {
     message: null,
-    errorObj: {
-      name: null,
-      email: null,
-      address: null,
-      cardNumber: null,
-      cardHolderName: null,
-      expiry: null,
-      cvc: null,
-    },
+    errors: {},
   });
 
   const formElement = useRef<HTMLFormElement>(null);

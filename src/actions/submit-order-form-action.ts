@@ -19,18 +19,12 @@ export const submitOrderFormAction = async (
       errorObj: {
         name: "Name is required",
         email: "Email is required",
-        address: null,
-        cardNumber: null,
-        cardHolderName: null,
-        expiry: null,
-        cvc: null,
       },
     };
 
   const URL = "REPLACE_WITH_YOUR_API_URL";
   const authHeader = "Bearer REPLACE_WITH_YOUR_AUTH_TOKEN";
   const payload = Object.fromEntries(formData.entries());
-  console.log(payload);
 
   const requestConfig = {
     method: "POST",
@@ -59,14 +53,6 @@ export const submitOrderFormAction = async (
 
   return {
     message: "success" as MessageType,
-    errorObj: {
-      name: null,
-      email: null,
-      address: null,
-      cardNumber: null,
-      cardHolderName: null,
-      expiry: null,
-      cvc: null,
-    },
+    errors: {},
   };
 };
