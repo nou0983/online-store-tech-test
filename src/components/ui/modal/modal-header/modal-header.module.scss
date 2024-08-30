@@ -1,0 +1,21 @@
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+  padding-bottom: 0.5rem;
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  svg {
+    font-size: 2rem;
+    color: var(--color-gray);
+    transition: 0.1s linear;
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+}

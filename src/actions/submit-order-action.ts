@@ -2,7 +2,7 @@ import type {
   FormStateType,
   MessageType,
   ErrorsType,
-} from "@/components/ui/modal/modal";
+} from "@/hooks/useServerAction";
 
 export const submitOrderAction = async (
   _: FormStateType,

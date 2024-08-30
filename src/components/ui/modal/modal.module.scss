@@ -24,37 +24,9 @@
       border-bottom: var(--border-sm);
     }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      text-transform: capitalize;
-      padding-bottom: 0.5rem;
-
-      h2 {
-        font-size: 1.7rem;
-      }
-
-      svg {
-        font-size: 2rem;
-        color: var(--color-gray);
-        transition: 0.1s linear;
-
-        &:hover {
-          color: var(--color-text);
-        }
-      }
-    }
-
     .inner-container {
       padding: 1rem 0;
       margin-bottom: 2rem;
-    }
-
-    .total {
-      text-align: center;
-      text-transform: capitalize;
-      margin-bottom: 1rem;
     }
   }
 }

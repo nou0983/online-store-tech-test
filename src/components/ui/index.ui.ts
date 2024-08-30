@@ -5,6 +5,8 @@ import Footer from "./footer/footer";
 import Header from "./header/header";
 import Logo from "./logo/logo";
 import Modal from "./modal/modal";
+import ModalFooter from "./modal/modal-footer/modal-footer";
+import ModalHeader from "./modal/modal-header/modal-header";
 import Spinner from "./spinner/spinner";
 import StarRating from "./star-rating/star-rating";
 
@@ -18,4 +20,6 @@ export {
   Footer,
   StarRating,
   Modal,
+  ModalHeader,
+  ModalFooter,
 };

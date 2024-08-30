@@ -1,6 +1,6 @@
 import { FormRow } from "../index.checkout";
 import styles from "./form.module.scss";
-import type { ErrorsType } from "@/components/ui/modal/modal";
+import type { ErrorsType } from "@/hooks/useServerAction";
 
 type inputFieldListType = {
   labelText: string;
