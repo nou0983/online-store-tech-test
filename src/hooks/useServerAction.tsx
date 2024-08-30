@@ -33,6 +33,7 @@ const useServerAction = () => {
 
   const formElement = useRef<HTMLFormElement>(null);
 
+  // Reset the form and show the confirmation modal when the form is successfully submitted
   useEffect(() => {
     if (formState.message === "success" && formElement.current) {
       formElement.current.reset();
@@ -40,6 +41,13 @@ const useServerAction = () => {
       cartDispatch({ type: "cart/clear" });
     }
   }, [formState.message, cartDispatch, modalDispatch]);
+
+  // Scroll to the top of the page if there are errors in case the form is long
+  useEffect(() => {
+    if (Object.keys(formState.errors).length > 0) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [formState.errors]);
 
   return { formState, action, formElement };
 };
