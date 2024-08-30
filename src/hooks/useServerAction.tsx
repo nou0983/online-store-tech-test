@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { useModalContext } from "@/contexts/modal/modal-context";
 import { useCartContext } from "@/contexts/cart/cart-context";
@@ -22,7 +22,9 @@ export type FormStateType = {
   errors: ErrorsType;
 };
 
-const useServerAction = () => {
+type UseServerActionType = React.RefObject<HTMLFormElement>;
+
+const useServerAction = (formElement: UseServerActionType) => {
   const { dispatch: modalDispatch } = useModalContext();
   const { dispatch: cartDispatch } = useCartContext();
 
@@ -31,8 +33,6 @@ const useServerAction = () => {
     errors: {},
   });
 
-  const formElement = useRef<HTMLFormElement>(null);
-
   // Reset the form and show the confirmation modal when the form is successfully submitted
   useEffect(() => {
     if (formState.message === "success" && formElement.current) {
@@ -40,16 +40,16 @@ const useServerAction = () => {
       modalDispatch({ type: "modal/open", payload: "order confirmation" });
       cartDispatch({ type: "cart/clear" });
     }
-  }, [formState.message, cartDispatch, modalDispatch]);
+  }, [formState.message, cartDispatch, modalDispatch, formElement]);
 
   // Scroll to the top of the page if there are errors in case the form is long
   useEffect(() => {
-    if (Object.keys(formState.errors).length > 0) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    if (Object.keys(formState.errors).length > 0 && formElement.current) {
+      formElement.current.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }, [formState.errors]);
+  }, [formState.errors, formElement]);
 
-  return { formState, action, formElement };
+  return { formState, action };
 };
 
 export default useServerAction;

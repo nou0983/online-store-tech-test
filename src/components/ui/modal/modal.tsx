@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import useServerAction from "@/hooks/useServerAction";
 import { useModalContext } from "@/contexts/modal/modal-context";
 import { useCartContext } from "@/contexts/cart/cart-context";
@@ -9,9 +10,11 @@ import { Form } from "@/components/features/checkout/index.checkout";
 import styles from "./modal.module.scss";
 
 const Modal = () => {
+  const formContainer = useRef<HTMLFormElement>(null);
+
   const { heading, dispatch: modalDispatch } = useModalContext();
   const { items, totalPrice } = useCartContext();
-  const { formState, formElement, action } = useServerAction();
+  const { formState, action } = useServerAction(formContainer);
 
   const handleClose = () => {
     modalDispatch({ type: "modal/close" });
@@ -62,7 +65,7 @@ const Modal = () => {
       className={`modal-overlay ${styles.modal}`}
       onClick={handleOverlayClick}
     >
-      <form ref={formElement} action={action} className={styles.container}>
+      <form ref={formContainer} action={action} className={styles.container}>
         <ModalHeader heading={heading} onClick={handleClose} />
         <div className={styles["inner-container"]}>{innerContent}</div>
         <ModalFooter
