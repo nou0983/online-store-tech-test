@@ -1,3 +1,5 @@
+"use server";
+
 import type {
   FormStateType,
   MessageType,
@@ -60,7 +62,7 @@ export const submitOrderAction = async (
     return { message: "fail" as MessageType, errors };
   }
 
-  const URL = "/api/submit-order";
+  const URL = `${process.env.NEXT_API_URL}/submit-order`;
   const formObject = Object.fromEntries(formData.entries());
 
   const requestConfig = {
